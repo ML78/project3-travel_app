@@ -1,6 +1,9 @@
 class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: [:show, :edit, :update, :destroy]
 
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy] #cannot delete another user's account
+
   # GET /itineraries
   # GET /itineraries.json
   def index
@@ -71,4 +74,12 @@ class ItinerariesController < ApplicationController
     def itinerary_params
       params.require(:itinerary).permit(:name, :user_id, :activity_id)
     end
+
+    def require_same_user
+      recipe = Recipe.find params[:id]
+      if current_user != recipe.user and !current_user.admin?
+        redirect_to recipes_path
+      end
+    end
+
 end

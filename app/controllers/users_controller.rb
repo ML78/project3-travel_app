@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  before_action :require_user, except:[:new, :create]
+  before_action :require_same_user, only: [:edit, :update, :destroy] #cannot delete another user's account
+
   # GET /users
   # GET /users.json
   def index
@@ -28,6 +31,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        if @user.image?
+          @cloudinary = Cloudinary::Uploader.upload(params[:user][:image])
+          @user.update :image => @cloudinary['url']
+        end
+        session[:user_id] = @user.id
+        # cookies.signed[:user_id] = @user.id
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -37,11 +46,18 @@ class UsersController < ApplicationController
     end
   end
 
+# add session for user authentication.
+# add cookies for ActionCable connection.
+
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
+        if @user.image?
+          @cloudinary = Cloudinary::Uploader.upload(params[:user][:image])
+          @user.update :image => @cloudinary['url']
+        end
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -69,6 +85,14 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :admin, :email, :image, :password_digest)
+      params.require(:user).permit(:name, :admin, :email, :image, :password, :password_confirmation)
     end
+
+    def require_same_user
+      user = User.find(params[:id])
+      if current_user != user && current_user.admin != false
+        redirect_to users_path
+      end
+    end
+
 end

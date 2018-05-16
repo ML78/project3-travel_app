@@ -1,3 +1,5 @@
+<!-- Form partial for new user sign-up & to edit user -->
+
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -17,26 +19,31 @@
   </div>
 
   <div class="field">
-    <%= form.label :admin %>
-    <%= form.check_box :admin, id: :user_admin %>
-  </div>
-
-  <div class="field">
     <%= form.label :email %>
     <%= form.text_area :email, id: :user_email %>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
+    <%= form.label :image, "Photo" %>
     <%= form.text_area :image, id: :user_image %>
   </div>
 
   <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest, id: :user_password_digest %>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit (@user.new_record? ? "Sign up" : "Update profile")%>
   </div>
+
+  <div>
+    [ <%= link_to "Already a member? Sign in.", login_path %> ]
+  </div>
+
 <% end %>
