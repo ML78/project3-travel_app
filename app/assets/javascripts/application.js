@@ -12,5 +12,5 @@
 //
 //= require rails-ujs
 //= require jquery
-//= require three
+//= require _three
 //= require_tree .
