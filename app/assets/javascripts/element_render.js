@@ -1,5 +1,8 @@
 $(document).ready(function(){
-  // $('#globe').html('globe');
+
+  if ($('#globe').length === 0) {
+  return
+  }
 
   //select DOM element to attach the scene
   const container = document.querySelector('#globe');
