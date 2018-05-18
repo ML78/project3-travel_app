@@ -76,9 +76,9 @@ class ItinerariesController < ApplicationController
     end
 
     def require_same_user
-      recipe = Recipe.find params[:id]
-      if current_user != recipe.user and !current_user.admin?
-        redirect_to recipes_path
+      itinerary = Itinerary.find params[:id]
+      if current_user != itinerary.user and !current_user.admin?
+        redirect_to itinerary_path
       end
     end
 

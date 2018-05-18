@@ -32,15 +32,11 @@
 <script>
   function initMap() {
 
-    <% Location.all.each do |location| %>
-
-    var centerLocation = {lat: <%= location.latitude %>, lng: <%= location.longitude %>};
+    var centerLocation = {lat: <%= @location.latitude %>, lng: <%= @location.longitude %>};
     var map = new google.maps.Map(document.getElementById('map'), {
       center: centerLocation,
       zoom: 12
     });
-
-    <% end %>
 
     var infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
@@ -83,7 +79,6 @@
   }
 
 </script>
-
 
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiG4R_vEFG6qFt7vsr5N9ZgSDtgITnmI&libraries=places&callback=initMap">
