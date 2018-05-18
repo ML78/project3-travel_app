@@ -1,29 +1,26 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @location.name %>
-</p>
+</h1>
 
-<p>
-  <strong>Country:</strong>
+<h2>
   <%= @location.country %>
-</p>
+</h2>
 
-<p>
-  <strong>Image:</strong>
-  <%= @location.image %>
-</p>
+<div>
+<% unless @location.activities.empty? %>
+  <h3>Activities</h3>
+  <% @location.activities.each do |activity| %>
+    <ul>
+      <li>
+        <%= link_to activity.name, activity %>
+      </li>
+    </ul>
+  <% end %>
+<% end %>
+</div>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @location.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @location.longitude %>
-</p>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>

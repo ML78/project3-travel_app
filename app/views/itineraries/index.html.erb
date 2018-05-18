@@ -6,8 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>User</th>
-      <th>Activity</th>
+      <th>Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,8 +15,7 @@
     <% @itineraries.each do |itinerary| %>
       <tr>
         <td><%= itinerary.name %></td>
-        <td><%= itinerary.user_id %></td>
-        <td><%= itinerary.activity_id %></td>
+        <td><%= itinerary.date.strftime("%A, %-d %B %Y") %></td>
         <td><%= link_to 'Show', itinerary %></td>
         <td><%= link_to 'Edit', edit_itinerary_path(itinerary) %></td>
         <td><%= link_to 'Destroy', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>

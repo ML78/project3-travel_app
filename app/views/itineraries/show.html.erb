@@ -1,19 +1,25 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @itinerary.name %>
-</p>
+</h1>
 
-<p>
-  <strong>User:</strong>
-  <%= @itinerary.user_id %>
-</p>
+<h3><%= @itinerary.date.strftime("%A, %-d %B %Y") %></h3>
 
-<p>
-  <strong>Activity:</strong>
-  <%= @itinerary.activity_id %>
-</p>
+<div>
+<% unless @itinerary.activities.empty? %>
+  <h2>Activities</h2>
+  <% @itinerary.activities.each do |activity| %>
+    <ul>
+      <li>
+        <%= link_to activity.name, activity %>
+      </li>
+    </ul>
+  <% end %>
+<% end %>
+</div>
+
+
 
 <%= link_to 'Edit', edit_itinerary_path(@itinerary) %> |
 <%= link_to 'Back', itineraries_path %>

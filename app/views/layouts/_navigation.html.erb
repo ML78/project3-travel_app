@@ -1,0 +1,15 @@
+  <nav>
+    <% if @current_user.present? %>
+      <%= link_to "#{@current_user.name}'s page", user_path(session[:user_id]) %>
+      <%= link_to 'Sign out', login_path, :method => 'delete' %>
+
+      <%= link_to 'Home', home_path %>
+      <%= link_to 'Itineraries', itineraries_path %>
+      <%= link_to 'Locations', locations_path %>
+
+      <% end %>
+
+        <% if @current_user.present? && @current_user.admin %>
+          <%= link_to 'Members', users_path %>
+        <% end %>
+</nav>
