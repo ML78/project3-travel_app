@@ -1,6 +1,6 @@
 const searchWeather = function(city){
   //console.log('Searching Open Weather Map for', city);
-  const weatherURL = 'http://api.openweathermap.org/data/2.5/weather?q='+city+'&units=metric'+'&APPID=ccc359d3e27bfd80e0f874a48fad69f0';
+  const weatherURL = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&units=metric'+'&APPID=ccc359d3e27bfd80e0f874a48fad69f0';
 
   $.ajax(weatherURL, {
     type: 'GET',
