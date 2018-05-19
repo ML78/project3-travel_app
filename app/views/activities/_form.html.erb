@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_area :name, id: :activity_name %>
+    <%= form.text_field :name, id: :activity_name %>
   </div>
 
   <div class="field">
@@ -32,11 +32,20 @@
   </div>
 
   <div class="field">
-    <%= form.label :location_id %>
-    <%= form.number_field :location_id, id: :activity_location_id %>
+    <%= form.label :location_id, "Location" %>
+    <%= form.select :location_id, Location.pluck(:name, :id), :include_blank => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :place, "Place ID" %>
+    <%= form.text_field :place, id: :activity_place %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit(@activity.new_record? ? "Create Activity" : "Update Activity") %>
   </div>
 <% end %>
+
+<div>
+  <a href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder" target="_blank" >Search Google for Place ID</a>
+</div>

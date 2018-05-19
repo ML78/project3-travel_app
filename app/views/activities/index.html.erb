@@ -6,10 +6,10 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
+      <!-- <th>Description</th> -->
       <th>Category</th>
       <th>Image</th>
-      <th>Location</th>
+      <!-- <th>Location</th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,14 +17,18 @@
   <tbody>
     <% @activities.each do |activity| %>
       <tr>
-        <td><%= activity.name %></td>
-        <td><%= activity.description %></td>
+        <td><%= link_to activity.name, activity %></td>
+        <!-- <td><%= activity.description %></td> -->
         <td><%= activity.category %></td>
-        <td><%= activity.image %></td>
-        <td><%= activity.location_id %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= image_tag activity.image, :class => 'thumbnail' %></td>
+        <!-- <td><%= activity.location_id %></td> -->
+
+        <% if @current_user.present? && @current_user.admin %>
+          <td><%= link_to 'Show', activity %></td>
+          <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+          <td><%= link_to 'Delete', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>

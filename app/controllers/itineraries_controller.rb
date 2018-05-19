@@ -3,6 +3,8 @@ class ItinerariesController < ApplicationController
 
   before_action :require_user, except: [:index, :show]
   before_action :require_same_user, only: [:edit, :update, :destroy] #cannot delete another user's account
+  # before_action :require_same_user
+
 
   # GET /itineraries
   # GET /itineraries.json
@@ -72,7 +74,7 @@ class ItinerariesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def itinerary_params
-      params.require(:itinerary).permit(:name, :user_id, :activity_id)
+      params.require(:itinerary).permit(:name, :user_id, :activity_id, activity_ids: [])
     end
 
     def require_same_user

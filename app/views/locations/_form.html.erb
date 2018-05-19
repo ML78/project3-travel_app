@@ -13,17 +13,12 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_area :name, id: :location_name %>
+    <%= form.text_field :name, id: :location_name, :autofocus => true %>
   </div>
 
   <div class="field">
     <%= form.label :country %>
-    <%= form.text_area :country, id: :location_country %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_area :image, id: :location_image %>
+    <%= form.text_field :country, id: :location_country %>
   </div>
 
   <div class="field">
@@ -37,6 +32,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit(@location.new_record? ? "Create Location" : "Update Location") %>
   </div>
 <% end %>

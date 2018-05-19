@@ -4,12 +4,14 @@
       <%= link_to 'Sign out', login_path, :method => 'delete' %>
 
       <%= link_to 'Home', home_path %>
-      <%= link_to 'Itineraries', itineraries_path %>
       <%= link_to 'Locations', locations_path %>
+      <%= link_to 'Activities', activities_path %>
 
       <% end %>
 
         <% if @current_user.present? && @current_user.admin %>
           <%= link_to 'Members', users_path %>
+          <%= link_to 'Itineraries', itineraries_path %>
+
         <% end %>
 </nav>

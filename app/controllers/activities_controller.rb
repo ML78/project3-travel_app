@@ -31,6 +31,10 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.save
+          if @activity.image?
+            @cloudinary = Cloudinary::Uploader.upload(params[:activity][:image])
+            @activity.update :image => @cloudinary['url']
+          end
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
         format.json { render :show, status: :created, location: @activity }
       else
@@ -45,6 +49,10 @@ class ActivitiesController < ApplicationController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
+        if @activity.image?
+          @cloudinary = Cloudinary::Uploader.upload(params[:activity][:image])
+          @activity.update :image => @cloudinary['url']
+        end
         format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
         format.json { render :show, status: :ok, location: @activity }
       else
@@ -72,6 +80,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:name, :description, :category, :image, :location_id)
+      params.require(:activity).permit(:name, :description, :category, :image, :location_id, :itinerary_id)
     end
 end

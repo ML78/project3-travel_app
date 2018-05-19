@@ -33,7 +33,7 @@ $(document).ready(function(){
   const scene = new THREE.Scene();
 
   //add background color
-  scene.background = new THREE.Color(0x000);
+  scene.background = new THREE.Color("#16161d");
 
   //add camera to scene
   scene.add(camera);
@@ -141,7 +141,7 @@ $(document).ready(function(){
     //based on keycode, trigger appropriate animation
     if(e.keycode =='38'){
       animateDirection.up();
-    } else if (e.keyCode === '40'){
+    } else if (e.keyCode == '40'){
       animateDirection.down();
     } else if (e.keyCode == '37'){
       animateDirection.left();
@@ -155,7 +155,7 @@ $(document).ready(function(){
 
   //rotate on mouse movement
   //array stores previous mouse position, start value at center of page
-  var lastMove = [window.innerWidth/2, window.innerHeight/2];
+  var lastMove = [window.innerWidth/2, window.innerHeight/10];
 
   //mouse move listener function
   function rotateOnMouseMove(e){

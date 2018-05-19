@@ -4,7 +4,9 @@
   <%= @itinerary.name %>
 </h1>
 
-<h3><%= @itinerary.date.strftime("%A, %-d %B %Y") %></h3>
+<% if @itinerary.date.present? %>
+  <h3><%= @itinerary.date.strftime("%A, %-d %B %Y") %></h3>
+<% end %>
 
 <div>
 <% unless @itinerary.activities.empty? %>
@@ -12,14 +14,16 @@
   <% @itinerary.activities.each do |activity| %>
     <ul>
       <li>
-        <%= link_to activity.name, activity %>  
+        <%= link_to activity.name, activity %>
       </li>
     </ul>
   <% end %>
 <% end %>
 </div>
 
-
+<% if @current_user.present? %>
+<p><%= link_to "Add a new activity", new_activity_path %> </p>
 
 <%= link_to 'Edit', edit_itinerary_path(@itinerary) %> |
 <%= link_to 'Back', itineraries_path %>
+<% end %>

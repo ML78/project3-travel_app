@@ -6,19 +6,26 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Member</th>
       <th>Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+
     <% @itineraries.each do |itinerary| %>
       <tr>
-        <td><%= itinerary.name %></td>
-        <td><%= itinerary.date.strftime("%A, %-d %B %Y") %></td>
+        <td><%= link_to itinerary.name, itinerary %></td>
+        <td><%= itinerary.user.name %></td>
+        <% if itinerary.date.present? %>
+        <td><%= itinerary.date.strftime '%A, %B %e, %Y' %></td>
+        <% else %>
+        <td></td>
+        <% end %>
         <td><%= link_to 'Show', itinerary %></td>
         <td><%= link_to 'Edit', edit_itinerary_path(itinerary) %></td>
-        <td><%= link_to 'Destroy', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

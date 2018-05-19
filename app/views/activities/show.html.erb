@@ -15,7 +15,7 @@
     <%= @activity.category %>
   </p>
 
-  <% unless @activity.image.empty? %>
+  <% if @activity.image.present? %>
     <%= image_tag @activity.image, :alt => @activity.name, :class => 'thumbnail' %>
   <% end %>
 
