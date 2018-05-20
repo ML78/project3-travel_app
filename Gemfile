@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'cloudinary'
+gem 'bootstrap-sass', '~> 3.3.7'
+
 # gem 'sprockets', '>= 3.0.0'
 # gem 'sprockets-es6'
 
