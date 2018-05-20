@@ -16,7 +16,7 @@
   </p>
 
   <% if @activity.image.present? %>
-    <%= image_tag @activity.image, :alt => @activity.name, :class => 'thumbnail' %>
+    <%= image_tag @activity.image, :alt => @activity.name, :class => 'activity-img' %>
   <% end %>
 
   <!-- <p>
@@ -43,4 +43,4 @@
   <%= link_to 'Edit', edit_activity_path(@activity) %> |
 <% end %>
 
-<%= link_to 'Back', activities_path %>
+<%= link_to 'Back to activities list', activities_path %>

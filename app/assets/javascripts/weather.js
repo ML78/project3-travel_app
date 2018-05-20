@@ -26,5 +26,6 @@ $(document).ready(function(){
     //console.log(city);
     $('#weather').empty();
     searchWeather(city);
+    $("#weather").toggleClass("show");
   });
 });
