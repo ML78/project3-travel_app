@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   before_action :require_user
-  before_action :require_admin, only: [:create, :update, :destroy]
+  # before_action :require_admin, only: [:create, :update, :destroy]
 
   # GET /activities
   # GET /activities.json

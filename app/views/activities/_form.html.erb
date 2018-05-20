@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :location_id, "Location" %>
-    <%= form.select :location_id, Location.pluck(:name, :id), :include_blank => true %>
+    <%= form.select :location_id, Location.order(:name).pluck(:name, :id), :prompt => "Location Name" %>
   </div>
 
   <div class="field">

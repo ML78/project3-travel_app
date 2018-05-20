@@ -6,6 +6,7 @@ Itinerary.destroy_all
 i1 = Itinerary.create(:name => 'NYC trip', :date => DateTime.new(2018,8,7))
 i2 = Itinerary.create(:name => 'Paris trip', :date => DateTime.new(2018,9,24))
 i3 = Itinerary.create(:name => 'Hong Kong trip', :date => DateTime.new(2018,10,31))
+i4 = Itinerary.create(:name => 'HCMC trip', :date => DateTime.new(2018,11,15))
 
 Activity.destroy_all
 a1 = Activity.create(:name => 'Central Park', :description => 'Get outdoors in Central Park', :category => 'Sights', :image => 'http://res.cloudinary.com/nique/image/upload/v1526603873/central-park-nyc.jpg', :place => 'ChIJ9ccLAZpYwokRthkg_S-WWcE')
@@ -23,6 +24,11 @@ a10 = Activity.create(:name => 'Lan Kwai Fong', :description => 'LKF is one of H
 a11 = Activity.create(:name => 'SoHo', :description => 'Visit SoHo, the area south of Hollywood Road for fun nightlife experiences', :category => 'Bars, Clubs and Nightlife', :image => 'https://res.cloudinary.com/nique/image/upload/v1526728265/HK_Central_Soho.jpg', :place => 'ChIJLw9f3HoABDQRaFmq9tKvYdk')
 a12 = Activity.create(:name => 'Times Square', :description => 'Enjoy some shopping in Times Square', :category => 'Shopping', :image => 'https://res.cloudinary.com/nique/image/upload/v1526729125/times-square-hk.jpg', :place => 'ChIJ_bAR11AABDQRGxsNeGwaZYM')
 
+a13 = Activity.create(:name => 'Sheraton Saigon Hotel & Towers', :description => 'Have a drink at the level 23 wine bar and see the amazing city skyline view.', :category => 'Bars, Clubs and Nightlife', :image =>'https://res.cloudinary.com/nique/image/upload/v1526793102/sheraton-hotel-hcmc.jpg', :place => 'ChIJA0evAkgvdTERLNUql8b4ipU')
+a14 = Activity.create(:name => 'Caravelle Hotel', :description => 'Visit the Caravelle Hotel’s Saigon Saigon Rooftop Bar which opened in 1959.', :category => 'Bars, Clubs and Nightlife', :image => 'https://res.cloudinary.com/nique/image/upload/v1526793098/caravelle-saigon-bar.jpg', :place => 'ChIJc_9VekYvdTERtvfHUbJKWBA')
+a15 = Activity.create(:name => 'Ben Thanh Market', :description => 'Go shopping in District 1’s Ben Thanh Market.', :category => 'Shopping', :image => 'https://res.cloudinary.com/nique/image/upload/v1526793668/market-hcmc.jpg', :place => 'ChIJQUJVMT8vdTERrcSslmLHnIo')
+a16 = Activity.create(:name => 'Trung Nguyen Legend Café', :description => 'Grab a coffee at Trung Nguyen Legend Café', :category => 'Cafes', :image => 'https://res.cloudinary.com/nique/image/upload/v1526793100/trung-nguyen-hcmc.jpg', :place => 'ChIJJTeKSxYvdTERBuvTFS0zE0k')
+
 Location.destroy_all
 l1 = Location.create(:name => 'New York', :country => 'USA', :latitude => 40.730610, :longitude => -73.935242)
 l2 = Location.create(:name => 'Paris', :country => 'France', :latitude => 48.864716, :longitude => 2.349014)
@@ -32,6 +38,7 @@ l4 = Location.create(:name => 'Ho Chi Minh City', :country => 'Vietnam', :latitu
 u2.itineraries << i1
 u2.itineraries << i2
 u2.itineraries << i3
+u2.itineraries << i4
 
 i1.activities << a1
 i1.activities << a2
@@ -48,6 +55,11 @@ i3.activities << a10
 i3.activities << a11
 i3.activities << a12
 
+i4.activities << a13
+i4.activities << a14
+i4.activities << a15
+i4.activities << a16
+
 l1.activities << a1
 l1.activities << a2
 l1.activities << a3
@@ -62,3 +74,8 @@ l3.activities << a9
 l3.activities << a10
 l3.activities << a11
 l3.activities << a12
+
+l4.activities << a13
+l4.activities << a14
+l4.activities << a15
+l4.activities << a16

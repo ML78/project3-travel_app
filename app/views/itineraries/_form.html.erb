@@ -33,6 +33,7 @@
     <% end %>
   </div> -->
 
+
   <div class="field">
     <%= form.label :user_id, "Posted by" %>
     <%= form.select :user_id, User.pluck(:name, :id), :include_blank => true %>
