@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy' # Sign out
 
   get '/home' => 'pages#home'
-  # root :to => 'pages#home'
+  #root :to => 'pages#home'
 
   root :to => 'session#new'
 

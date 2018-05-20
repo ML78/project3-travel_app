@@ -16,7 +16,7 @@
   </p>
 
   <% if @activity.image.present? %>
-    <%= image_tag @activity.image, :alt => @activity.name, :class => 'activity-img' %>
+    <%= image_tag @activity.image, :alt => @activity.name, :id => 'activity-img' %>
   <% end %>
 
   <!-- <p>
@@ -38,6 +38,55 @@
   </div> -->
 
 </div>
+
+<div class="container1">
+  <div id="column2">
+    <div id="activity-map"></div>
+
+    <script>
+      function initMap() {
+
+        var centerLocation = {lat: <%= @activity.location.latitude %>, lng: <%= @activity.location.longitude %>};
+        var map = new google.maps.Map(document.getElementById('activity-map'), {
+          center: centerLocation,
+          zoom: 12
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+
+        var serviceQuery = function(place, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+            var marker = new google.maps.Marker({
+              map: map,
+              position: place.geometry.location
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                // 'Place ID: ' + place.place_id + '<br>' +
+                place.formatted_address + '</div>');
+              infowindow.open(map, this);
+            });
+          }
+        }
+
+         service.getDetails({
+           placeId: '<%= @activity.place %>',
+         }, serviceQuery);
+      }
+
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiG4R_vEFG6qFt7vsr5N9ZgSDtgITnmI&libraries=places&callback=initMap">
+    </script>
+
+  </div>
+</div>
+
+
 
 <% if @current_user.present? && @current_user.admin %>
   <%= link_to 'Edit', edit_activity_path(@activity) %> |

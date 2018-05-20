@@ -4,6 +4,9 @@
   <span id="city"><%= @location.name %></span>, <%= @location.country %>
 </h1>
 
+<button id="searchWeather">Weather Details</button>
+<div id="weather"></div>
+
 <div>
 <% unless @location.activities.empty? %>
   <h2>Activities</h2>
@@ -16,6 +19,7 @@
   <% end %>
 <% end %>
 </div>
+
 
 
 <% if @current_user.present? && @current_user.admin %>
@@ -87,6 +91,3 @@
 
   </div>
 </div>
-
-<button id="searchWeather">Weather Details</button>
-<div id="weather"></div>

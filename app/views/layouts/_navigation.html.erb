@@ -1,17 +1,40 @@
-  <nav>
-    <% if @current_user.present? %>
-      <%= link_to "#{@current_user.name}'s page", user_path(session[:user_id]) %>
-      <%= link_to 'Sign out', login_path, :method => 'delete' %>
+<!-- Nav partial  -->
 
-      <%= link_to 'Home', home_path %>
-      <%= link_to 'Locations', locations_path %>
-      <%= link_to 'Activities', activities_path %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'Home', home_path, :class => 'navbar-brand', :id => 'nav-home' %>
+    </div>
 
-      <% end %>
-
-        <% if @current_user.present? && @current_user.admin %>
-          <%= link_to 'Members', users_path %>
-          <%= link_to 'Itineraries', itineraries_path %>
-
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li> <%= link_to 'Locations', locations_path, :class => 'active', :id => 'nav-links' %> </li>
+        <% if @current_user.present? %>
+          <li> <%= link_to 'Activities', activities_path, :class => 'active', :id => 'nav-links' %> </li>
         <% end %>
+        <% if @current_user.present? && @current_user.admin %>
+          <li> <%= link_to 'Members', users_path, :id => 'nav-links' %> </li>
+          <li> <%= link_to 'Itineraries', itineraries_path, :id => 'nav-links' %> </li>
+        <% end %>
+      </ul>
+
+      <form class="navbar-form navbar-right">
+        <% if @current_user.present? %>
+          <%= link_to "#{@current_user.name}'s page", user_path(session[:user_id]), :id => 'nav-links' %>
+          <%= link_to 'Sign out', login_path, :method => 'delete', :class => 'btn btn-default', :id => 'sign-out' %>
+          <% else %>
+            <%= link_to 'Sign In', login_path, :class => 'btn btn-default', :id => 'sign-in' %>
+          <% end %>
+      </form>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>

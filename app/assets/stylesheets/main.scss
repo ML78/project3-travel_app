@@ -1,5 +1,8 @@
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 
 #globe {
   width: 100vw;
@@ -12,6 +15,17 @@
   margin: 100px;
 }
 
+#activity-img {
+  height: 300px;
+  width: 300px;
+}
+
+#activity-map {
+  height: 500px;
+  width: 500px;
+  margin: 50px;
+}
+
 .profile-img {
   height: 200px;
   width: 250px;
@@ -22,10 +36,7 @@
   width: 100px;
 }
 
-.activity-img {
-  height: 500px;
-  width: 500px;
-}
+
 
 #weather{
   display:none;
