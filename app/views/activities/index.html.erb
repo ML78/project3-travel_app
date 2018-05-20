@@ -8,8 +8,8 @@
       <th>Name</th>
       <!-- <th>Description</th> -->
       <th>Category</th>
+      <th>Location</th>
       <th>Image</th>
-      <!-- <th>Location</th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,8 +20,9 @@
         <td><%= link_to activity.name, activity %></td>
         <!-- <td><%= activity.description %></td> -->
         <td><%= activity.category %></td>
+        <td><%= activity.location.name %></td>
         <td><%= image_tag activity.image, :class => 'thumbnail' %></td>
-        <!-- <td><%= activity.location_id %></td> -->
+
 
         <% if @current_user.present? && @current_user.admin %>
           <td><%= link_to 'Show', activity %></td>
@@ -36,4 +37,6 @@
 
 <br>
 
-<%= link_to 'New Activity', new_activity_path %>
+<% if @current_user.present? && @current_user.admin %>
+  <%= link_to 'New Activity', new_activity_path %>
+<% end %>
