@@ -15,8 +15,8 @@
 
   <% if @current_user.present? %>
   <button><%= link_to "Add a new itinerary", new_itinerary_path %></button>
+  <button><%= link_to "Add a new activity", new_activity_path %></button>
   <% end %>
-
 
   <% unless @user.itineraries.empty? %>
     <h2>Itineraries</h2>

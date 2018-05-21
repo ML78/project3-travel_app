@@ -1,8 +1,8 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
-  before_action :require_user, only: [:show, :index]
-  before_action :require_admin, only: [:create, :edit, :update, :destroy]
+  before_action :require_user, only: [:create, :show, :index]
+  before_action :require_admin, only: [:edit, :update, :destroy]
 
   # GET /activities
   # GET /activities.json
@@ -80,6 +80,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:name, :description, :category, :image, :location_id, :itinerary_id)
+      params.require(:activity).permit(:name, :description, :category, :image, :place, :location_id, :itinerary_id)
     end
 end
