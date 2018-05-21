@@ -18,7 +18,8 @@
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.date_field :date, id: :itinerary_date %>
+    <%= form.date_select :date, id: :itinerary_date %>
+
   </div>
 
   <!-- <div class="field">
@@ -34,9 +35,15 @@
   </div>
 
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :user_id, "Posted by" %>
     <%= form.select :user_id, User.pluck(:name, :id), :include_blank => true %>
+  </div> -->
+
+
+  <div class="field hidden">
+  <%= form.label :user_id, "Posted by" %>
+  <%= form.text_field :user_id, :value => session[:user_id] %>
   </div>
 
 
@@ -44,6 +51,3 @@
     <%= form.submit(@itinerary.new_record? ? "Create Itinerary" : "Update Itinerary") %>
   </div>
 <% end %>
-
-
-<!-- use date_field or datetime_select or date_select ? -->

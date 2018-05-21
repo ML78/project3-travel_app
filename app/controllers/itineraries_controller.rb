@@ -74,7 +74,7 @@ class ItinerariesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def itinerary_params
-      params.require(:itinerary).permit(:name, :user_id, :activity_id, activity_ids: [])
+      params.require(:itinerary).permit(:name, :date, :user_id, :activity_id, activity_ids: [])
     end
 
     def require_same_user
