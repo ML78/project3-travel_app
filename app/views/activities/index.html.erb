@@ -10,6 +10,11 @@
       <th>Category</th>
       <th>Location</th>
       <th>Image</th>
+      <% if @current_user.present? && @current_user.admin %>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      <% end %>
       <th colspan="3"></th>
     </tr>
   </thead>

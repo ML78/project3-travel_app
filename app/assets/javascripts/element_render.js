@@ -33,7 +33,7 @@ $(document).ready(function(){
   const scene = new THREE.Scene();
 
   //add background color
-  scene.background = new THREE.Color("#16161d");
+  scene.background = new THREE.Color("#ffffff");
 
   //add camera to scene
   scene.add(camera);
@@ -56,7 +56,7 @@ $(document).ready(function(){
   var loader = new THREE.TextureLoader();
 
   //call load method on loader
-  imageURL = '/assets/land_ocean_ice_cloud_2048.jpg';
+  imageURL = '/assets/land_ocean_ice_2048.jpg';
   loader.load(imageURL, function(texture){
 
   //create sphere

@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy' # Sign out
 
   get '/home' => 'pages#home'
-  #root :to => 'pages#home'
+  root :to => 'pages#home'
 
-  root :to => 'session#new'
+  # root :to => 'session#new'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

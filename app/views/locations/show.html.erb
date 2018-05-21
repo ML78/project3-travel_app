@@ -9,7 +9,7 @@
 
 <div>
 <% unless @location.activities.empty? %>
-  <h2>Activities</h2>
+  <h2>Things to do in <%= @location.name %></h2>
   <% @location.activities.each do |activity| %>
     <ul>
       <li>
