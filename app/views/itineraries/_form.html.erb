@@ -36,7 +36,7 @@
 
   <div class="field">
     <%= form.label :activity_ids, "Activities" %>
-    <%= form.collection_select(:activity_ids, Activity.all, :id, :name, {:prompt => "Please Select from the activities below:"}, {:multiple => true}) %>
+    <%= form.collection_select(:activity_ids, Activity.all, :id, :name, {:prompt => "Please select from the activities below:"}, {:multiple => true}) %>
   </div>
 
   <!-- <div class="field">
