@@ -12,7 +12,9 @@
     <div>
     <% unless @activity.itineraries.empty? %>
       <% @activity.itineraries.each do |itinerary| %>
+          <% if itinerary.user_id == @current_user.id %>
         <p><%= link_to itinerary.name, itinerary %></p>
+        <% end %>
       <% end %>
     <% end %>
     </div>
@@ -86,7 +88,7 @@
 </div>
 
 <% if @current_user.present? && @current_user.admin %>
-  <%= link_to 'Edit', edit_activity_path(@activity), :class => 'btn btn-default' %> 
+  <%= link_to 'Edit', edit_activity_path(@activity), :class => 'btn btn-default' %>
 <% end %>
 
 <%= link_to 'Go to activities list', activities_path, :class => 'btn btn-default' %>
