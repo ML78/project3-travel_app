@@ -19,7 +19,7 @@
         <td><%= link_to itinerary.name, itinerary %></td>
         <td><%= itinerary.user.name %></td>
         <% if itinerary.date.present? %>
-        <td><%= itinerary.date.strftime '%A, %B %e, %Y' %></td>
+        <td><%= itinerary.date.strftime '%B %d, %Y' %></td>
         <% else %>
         <td></td>
         <% end %>
