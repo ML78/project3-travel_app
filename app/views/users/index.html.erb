@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,15 +14,11 @@
   <% if @current_user.present? %>
     <% @users.each do |user| %>
       <tr>
-        <% unless @user.image.empty? %>
-          <td><%= image_tag user.image, :alt => user.name, :class => 'thumbnail' %></td>
-        <% end %>
         <td><%= link_to user.name, user %></td>
-
-        <!-- <% if @current_user.present? && @current_user.admin %>
+        <% if @current_user.present? && @current_user.admin %>
           <td><%= link_to 'Edit', edit_user_path(user) %></td>
           <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %> -->
+        <% end %>
       </tr>
     <% end %>
   <% end %>
