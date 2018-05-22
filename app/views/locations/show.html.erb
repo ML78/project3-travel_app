@@ -7,10 +7,10 @@
 <div class="row">
   <div class="col-md-6">
 
-<p class="btn btn-warning" id="searchWeather">Weather Details</p>
-<div id="weather"></div>
+  <p class="btn btn-warning" id="searchWeather">Weather Details</p>
+  <div id="weather"></div>
 
-</div>
+  </div>
 </div>
 
 
@@ -18,21 +18,21 @@
   <div class="col-md-4">
 
 
-<% unless @location.activities.empty? %>
-  <h2>Things to do in <%= @location.name %></h2>
-  <% @location.activities.each do |activity| %>
-    <ul>
-      <li>
-        <%= link_to activity.name, activity %>
-      </li>
-    </ul>
+  <% unless @location.activities.empty? %>
+    <h2>Things to do in <%= @location.name %></h2>
+    <% @location.activities.each do |activity| %>
+      <ul>
+        <li>
+          <%= link_to activity.name, activity %>
+        </li>
+      </ul>
+    <% end %>
   <% end %>
-<% end %>
-</div>
+  </div>
 
 
-<div class="col-md-7 col-md-offset-1">
-  <div id="map"></div>
+  <div class="col-md-7 col-md-offset-1">
+    <div id="map"></div>
 
     <script>
       function initMap() {
@@ -87,8 +87,8 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiG4R_vEFG6qFt7vsr5N9ZgSDtgITnmI&libraries=places&callback=initMap">
     </script>
-</div>
 
+  </div>
 </div>
 
 
