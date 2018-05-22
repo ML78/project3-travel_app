@@ -31,5 +31,5 @@
 <br>
 
 <% if @current_user.present? && @current_user.admin %>
-  <%= link_to 'New Location', new_location_path, :class => 'btn btn-default' %>
+  <%= link_to 'Add New Location', new_location_path, :class => 'btn btn-success' %>
 <% end %>

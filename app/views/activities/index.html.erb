@@ -28,7 +28,6 @@
         <td><%= activity.location.name %></td>
         <td><%= image_tag activity.image, :class => 'thumbnail' %></td>
 
-
         <% if @current_user.present? && @current_user.admin %>
           <td><%= link_to 'Show', activity %></td>
           <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
@@ -43,5 +42,5 @@
 <br>
 
 <% if @current_user.present? && @current_user.admin %>
-  <%= link_to 'New Activity', new_activity_path %>
+  <%= link_to 'Add New Activity', new_activity_path, :class => 'btn btn-success' %>
 <% end %>
