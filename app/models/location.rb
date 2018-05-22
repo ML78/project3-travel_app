@@ -13,5 +13,10 @@
 
 class Location < ApplicationRecord
   has_many :activities
-  has_many :itineraries, through: :activities 
+  has_many :itineraries, through: :activities
+
+  validates :name, :presence => true
+  validates :country, :presence => true
+  validates :latitude, :presence => true
+  validates :longitude, :presence => true
 end
