@@ -16,7 +16,7 @@
 class Activity < ApplicationRecord
   has_and_belongs_to_many :itineraries
   has_many :users, through: :itineraries
-  belongs_to :location
+  # belongs_to :location
 
   validates :name, :presence => true
   validates :description, :presence => true
