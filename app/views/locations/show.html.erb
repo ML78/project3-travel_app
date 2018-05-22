@@ -4,7 +4,7 @@
   <span id="city"><%= @location.name %></span>, <%= @location.country %>
 </h1>
 
-<button id="searchWeather">Weather Details</button>
+<p class="btn btn-warning" id="searchWeather">Weather Details</p>
 <div id="weather"></div>
 
 <div>
@@ -20,18 +20,8 @@
 <% end %>
 </div>
 
-
-
-<% if @current_user.present? && @current_user.admin %>
-  <%= link_to 'Edit', edit_location_path(@location) %> |
-<% end %>
-
-<%= link_to 'Back', locations_path %>
-
-
-<div class="container1">
-  <div id="column2">
-    <div id="map"></div>
+<div>
+  <div id="map"></div>
 
     <script>
       function initMap() {
@@ -79,7 +69,6 @@
            placeId: '<%= activity.place %>',
          }, serviceQuery);
         <% end %>
-
       }
 
     </script>
@@ -87,7 +76,11 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiG4R_vEFG6qFt7vsr5N9ZgSDtgITnmI&libraries=places&callback=initMap">
     </script>
-
-
-  </div>
 </div>
+
+
+<% if @current_user.present? && @current_user.admin %>
+  <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-default" %>
+<% end %>
+
+<%= link_to 'Back to locations list', locations_path, :class => "btn btn-default" %>

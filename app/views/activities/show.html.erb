@@ -1,46 +1,45 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
+
+
 <h1>
   <%= @activity.name %>, <%= @activity.location.name %>
 </h1>
 
-<div>
-  <p>
-    <!-- <strong>Description:</strong> -->
-    <%= simple_format(@activity.description) %>
-  <!-- </p> -->
+<div class="row">
+  <div class="col-md-4">
 
-  <p>
-    <strong>Category:</strong>
-    <%= @activity.category %>
-  </p>
-
-  <% if @activity.image.present? %>
-    <%= image_tag @activity.image, :alt => @activity.name, :id => 'activity-img' %>
-  <% end %>
-
-  <!-- <p>
-    <strong>Location:</strong>
-    <%= @activity.location_id %>
-  </p> -->
-
-  <!-- <div>
-  <% unless @activity.itineraries.empty? %>
-    <h3>Itineraries</h3>
-    <% @activity.itineraries.each do |itinerary| %>
-      <ul>
-        <li>
-          <%= link_to itinerary.name, itinerary %>
-        </li>
-      </ul>
+    <div>
+    <% unless @activity.itineraries.empty? %>
+      <% @activity.itineraries.each do |itinerary| %>
+        <p><%= link_to itinerary.name, itinerary %></p>
+      <% end %>
     <% end %>
-  <% end %>
-  </div> -->
+    </div>
 
+    <p>
+      <strong>Category:</strong>
+      <%= @activity.category %>
+    </p>
+
+    <p>
+      <%= simple_format(@activity.description) %>
+    </p>
+
+  </div>
 </div>
 
-<div class="container1">
-  <div id="column2">
+<div class="row">
+  <div class="col-md-4">
+
+    <% if @activity.image.present? %>
+      <%= image_tag @activity.image, :alt => @activity.name, :id => 'activity-img' %>
+    <% end %>
+
+  </div>
+
+
+  <div class="col-md-7 col-md-offset-1">
     <div id="activity-map"></div>
 
     <script>
@@ -86,10 +85,8 @@
   </div>
 </div>
 
-
-
 <% if @current_user.present? && @current_user.admin %>
-  <%= link_to 'Edit', edit_activity_path(@activity) %> |
+  <%= link_to 'Edit', edit_activity_path(@activity), :class => 'btn btn-default' %> 
 <% end %>
 
-<%= link_to 'Back to activities list', activities_path %>
+<%= link_to 'Go to activities list', activities_path, :class => 'btn btn-default' %>

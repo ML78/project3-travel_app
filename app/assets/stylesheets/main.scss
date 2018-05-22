@@ -5,6 +5,7 @@ $navbar-default-bg: rgba(248, 248, 248, 1);
 
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
+
 a {
   color: #000;
 
@@ -28,7 +29,7 @@ body {
 
 div {
   &.field, &.actions {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 }
 
@@ -77,14 +78,18 @@ td {
 
 
 #activity-img {
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
+  margin: 25px;
+  border: 5px solid rgba(248, 248, 248, 1);
+
 }
 
 #activity-map {
-  height: 500px;
-  width: 500px;
-  margin: 50px;
+  height: 600px;
+  width: 600px;
+  margin: 25px;
+  border: 5px solid rgba(248, 248, 248, 1);
 }
 
 #error_explanation {
@@ -110,6 +115,10 @@ td {
   }
 }
 
+#form-button {
+  background-color: rgba(175, 175, 175, 0.5);
+}
+
 #globe {
   width: 100vw;
   height: 100vh;
@@ -119,6 +128,11 @@ td {
   height: 500px;
   width: 960px;
   margin: 100px;
+  border: 5px solid rgba(248, 248, 248, 1);
+}
+
+#navigation-btn {
+  margin-bottom: 20px;
 }
 
 #notice {

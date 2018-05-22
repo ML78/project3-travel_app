@@ -23,9 +23,11 @@
         <% else %>
         <td></td>
         <% end %>
-        <td><%= link_to 'Show', itinerary %></td>
-        <td><%= link_to 'Edit', edit_itinerary_path(itinerary) %></td>
-        <td><%= link_to 'Delete', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if @current_user.present? && @current_user.admin %>
+          <td><%= link_to 'Show', itinerary %></td>
+          <td><%= link_to 'Edit', edit_itinerary_path(itinerary) %></td>
+          <td><%= link_to 'Delete', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -37,15 +37,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :place, "Place ID" %>
+    <%= form.label :place, "Google PlaceID" %>
     <%= form.text_field :place, id: :activity_place %>
   </div>
 
   <div class="actions">
-    <%= form.submit(@activity.new_record? ? "Create Activity" : "Update Activity") %>
+    <button class="btn btn-default" id="form-button"><%= form.submit(@activity.new_record? ? "Create Activity" : "Update Activity") %></button>
   </div>
 <% end %>
-
-<div>
-  <a href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder" target="_blank" >Search Google for Place ID</a>
-</div>

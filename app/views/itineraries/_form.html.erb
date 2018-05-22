@@ -19,31 +19,12 @@
   <div class="field">
     <%= form.label :date %>
     <%= form.date_select :date, id: :itinerary_date %>
-
   </div>
-
-  <!-- <div class="field">
-    <%= form.label :activity_id %>
-    <%= form.number_field :activity_id, id: :itinerary_activity_id %>
-  </div> -->
-
-  <!-- <div class="field">
-    <%= form.label :activity_ids, "Activities" %>
-    <%= form.collection_check_boxes :activity_ids, Activity.all, :id, :name do |checkbox| %>
-    <% checkbox.label {checkbox.check_box + checkbox.text} %>
-    <% end %>
-  </div> -->
 
   <div class="field">
     <%= form.label :activity_ids, "Activities" %>
-    <%= form.collection_select(:activity_ids, Activity.all, :id, :name, {:prompt => "Please select from the activities below:"}, {:multiple => true}) %>
+    <%= form.collection_select(:activity_ids, Activity.all.order(:location_id), :id, :name, {:prompt => "Select activities from list below:"}, {:multiple => true}) %>
   </div>
-
-  <!-- <div class="field">
-    <%= form.label :user_id, "Posted by" %>
-    <%= form.select :user_id, User.pluck(:name, :id), :include_blank => true %>
-  </div> -->
-
 
   <div class="field hidden">
   <%= form.label :user_id, "Posted by" %>
@@ -52,6 +33,6 @@
 
 
   <div class="actions">
-    <%= form.submit(@itinerary.new_record? ? "Create Itinerary" : "Update Itinerary") %>
+    <button class="btn btn-default" id="form-button"><%= form.submit(@itinerary.new_record? ? "Create Itinerary" : "Update Itinerary") %></button>
   </div>
 <% end %>
