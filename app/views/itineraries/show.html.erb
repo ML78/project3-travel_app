@@ -24,12 +24,8 @@
 <% if @current_user.present? %>
 
 <div>
-<%= link_to 'Edit Itinerary', edit_itinerary_path(@itinerary), :class => 'btn btn-default' %>
-<%= link_to 'Delete', @itinerary, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-default' %>
+  <%= link_to 'Edit Itinerary', edit_itinerary_path(@itinerary), :class => 'btn btn-default' %>
+  <%= link_to 'Delete', @itinerary, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-default' %>
 </div>
 
 <% end %>
-
-<!-- <% if @current_user.present? && @current_user.admin %>
-<%= link_to 'Back to Itinerary Listing', itineraries_path, :class => 'btn btn-default' %>
-<% end %> -->
